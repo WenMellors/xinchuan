@@ -1,0 +1,59 @@
+<div class="list">
+  <div class="grid" style="font-size:17px">
+    <div class="sixteen wide column">
+      <p>
+        <strong>活动标题:</strong>
+        <%= @activity.title %>
+      </p>
+    </div>
+  </hr>
+    <div class="sixteen wide column">
+        <p>
+          <strong>活动内容:</strong>
+          <p style="border: solid 2px transparent;position: relative; margin-top: -5%;word-wrap:break-word">
+            <%= @activity.content.gsub(/\n/,'</br>').html_safe %>
+          </p>
+        </p>
+    </div>
+  </hr>
+      <div class="ten wide column">
+        <p>
+          <strong>活动时间:</strong>
+          <%= @activity.date.strftime('%Y-%m-%d %H:%M') %>
+        </p>
+      </div>
+      <div class="four column">
+        <p>
+          <strong>发起人:</strong>
+          <%= @activity.originator %>
+        </p>
+      </div>
+    </div>
+    <%# if current_user.menber? and (@time - @activity.date.ago(1.day) < 0) %>
+    <% if (@time - @activity.date.ago(1.day) < 0) %>
+    <h2> 想要请假吗? </h2>
+    <%= form_for([@activity, @activity.reasons.build]) do |f| %>
+    <div class="ui form" >
+      <div class="twelve wide field" style="position:relative;">
+        <%= f.label :姓名 %>
+        <%= f.text_field :name %>
+      </div>
+    <div class="twelve wide field" style="position:relative;">
+      <%= f.label :请假原因 %>
+      <%= f.text_area :why, size: "10x5" %>
+    </div>
+    </div>
+    <br>
+    <button class="ui teal button" type="submit" style="font-size:14px;position:relative; left: 60%">
+      请假
+    </button>
+    <% end %>
+
+    <% end %>
+  </div>
+<div class="bottom">
+  <% if current_user.admin? %>
+  <%= link_to '编辑活动', edit_activity_path(@activity) %> |
+  <% end %>
+  <%= link_to '返回主页', activities_path %>
+</div>

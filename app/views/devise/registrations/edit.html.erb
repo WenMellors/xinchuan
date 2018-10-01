@@ -1,0 +1,42 @@
+<div class="ui center aligned container">
+  <p style="font-size:30px">修改密码</p>
+</div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+  <div class="ui form">
+    <div class="twelve wide field" style="position:relative;left:12%">
+      <%= f.label :电子邮箱 %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>现在等待确认: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="twelve wide field" style="position:relative;left:12%">
+      <%= f.label :密码 %> <i>(如果你不想修改密码的话，这里留白)</i><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+      <br />
+      <em>至少输入<%= @minimum_password_length %>个字符</em>
+      <% end %>
+    </div>
+
+    <div class="twelve wide field" style="position:relative;left:12%">
+      <%= f.label :确认密码 %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="twelve wide field" style="position:relative;left:12%">
+      <%= f.label :原密码 %> <i>(我们需要您输入原来的密码来验证您的身份)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+  </div>
+  <br>
+  <button class="ui teal button" type="submit" style="font-size:14px;position:relative; left: 65%">
+    修改密码
+  </button>
+<% end %>
+<div class="bottom">
+  <%= link_to "返回", :back %>
+</div>

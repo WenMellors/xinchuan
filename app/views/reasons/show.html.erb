@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="grid" style="font-size:17px">
+  <div class="sixteen wide column">
+
+    <strong>姓名:</strong>
+    <%= @reason.name %>
+  </div>
+  <div class="sixteen wide column">
+    <strong>请假原因:</strong>
+    <%= @reason.why %>
+  </div>
+  <div class="sixteen wide column">
+    <strong>活动名称:</strong>
+    <%= @reason.activity.title %>
+  </div>
+  </div>
+</div>
+
+<div class="bottom">
+  <%= link_to '返回', reasons_path %>
+</div>

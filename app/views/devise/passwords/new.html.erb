@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="ui center aligned container">
+    <p style="font-size:30px">忘记密码？</p>
+  </div>
+  <br>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="ui form">
+      <div  class="twelve wide field" style="position:relative;left:12%">
+        <%= f.label :电子邮箱 %><br />
+        <br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+    <br>
+
+    <button class="ui teal button" type="submit" style="font-size:14px;position:relative; left: 65%">
+      发送
+    </button>
+    <% end %>
+
+</div>

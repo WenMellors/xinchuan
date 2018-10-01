@@ -1,0 +1,64 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  devise:
+    confirmations:
+      confirmed: "您的电子邮箱已被成功确认"
+      send_instructions: "您将会在几分钟内收到一封邮件来告知如何确认邮箱."
+      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中，您将会在几分钟内收到一封包含有如何确认账户信息的邮件."
+    failure:
+      already_authenticated: "您已经登录了."
+      inactive: "您的账户现在还没有启动."
+      invalid: "无效的%{authentication_keys}或密码."
+      locked: "您的账户已被锁定."
+      last_attempt: "在您的账户被锁定之前您还有一次机会."
+      not_found_in_database: "无效的%{authentication_keys}或密码."
+      timeout: "您的登录已过期，请重新登录"
+      unauthenticated: "在继续浏览前，您需要先登录或注册"
+      unconfirmed: "在继续浏览前，您需要先确认您的电子邮箱."
+    mailer:
+      confirmation_instructions:
+        subject: "确认提示"
+      reset_password_instructions:
+        subject: "重置密码提示"
+      unlock_instructions:
+        subject: "解锁提示"
+      email_changed:
+        subject: "改变邮箱"
+      password_change:
+        subject: "修改密码"
+    omniauth_callbacks:
+      failure: "不能完成您%{kind}的身份验证因为\"%{reason}\"."
+      success: "成功验证为%{kind}账户."
+    passwords:
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "您的密码已被成功修改，现在您已经登录."
+      updated_not_active: "您的密码已被成功修改."
+    registrations:
+      destroyed: "再见！您的账户已被销毁，期待我们能再次相遇！"
+      signed_up: "欢迎！您已经成功注册."
+      signed_up_but_inactive: "您已经成功注册，但您的账户还未确认"
+      signed_up_but_locked: "您已成功注册但账户被锁定."
+      signed_up_but_unconfirmed: "一条带有确认链接的信息已经被发送到那你的账户."
+      update_needs_confirmation: "您已经成功修改了账户，但我们需要重新确认您的邮箱信息."
+      updated: "您的账户已被成功修改"
+    sessions:
+      signed_in: "登录成功！"
+      signed_out: "成功退出登录."
+      already_signed_out: "成功退出登录."
+    unlocks:
+      send_instructions: "您将会在几分钟内收到一封如何解锁账户的邮件."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "您的账户已被解锁，请登录后继续。"
+  errors:
+    messages:
+      already_confirmed: "邮箱已被成功确认，请登录后继续"
+      confirmation_period_expired: "需要在%{period}内被确认, 请重新进行操作。"
+      expired: "已经过期，请重新进行操作。"
+      not_found: "没有找到"
+      not_locked: "没有被锁定"
+      not_saved:
+        one: "出现了一个错误而无法继续："
+        other: "%{count} 个错误出现了而无法继续。"

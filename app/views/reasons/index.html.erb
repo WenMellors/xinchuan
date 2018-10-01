@@ -1,0 +1,30 @@
+<div class="main">
+  <h1>请假原因列表</h1>
+
+  <table class="ui inverted teal table">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>请假原因</th>
+        <th>活动名称</th>
+        <th>查看详情</th>
+        <th>删除</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reasons.each do |reason| %>
+      <tr>
+        <td><%= reason.name %></td>
+        <td><%= reason.why %></td>
+        <td><%= reason.activity.title %></td>
+        <td><%= link_to '详情', activity_reason_path(reason.activity,reason) %></td>
+        <td><%= link_to '删除', activity_reason_path(reason.activity,reason), method: :delete, data: { confirm: '确定要删除此条请假吗?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="bottom">
+  <%= link_to '返回主页', activities_path %>
+</div>

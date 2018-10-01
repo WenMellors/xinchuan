@@ -1,0 +1,42 @@
+
+
+<div class="list">
+  <div class="ui center aligned container">
+    <table class="ui unstackable inverted teal table" style = " width: 100%; height: 100%">
+      <thead>
+        <tr>
+          <th>活动标题</th>
+          <th>活动日期</th>
+          <th>发起人</th>
+          <th>活动请假</th>
+          <% if current_user.admin? %>
+          <th>编辑活动</th>
+          <th>删除活动</th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @activities.each do |activity| %>
+        <tr>
+          <td><%= activity.title %></td>
+          <td><%= activity.date.strftime('%Y-%m-%d %H:%M') %></td>
+          <td><%= activity.originator %></td>
+          <td><%= link_to '活动请假', activity %></td>
+          <% if current_user.admin? %>
+          <td><%= link_to '编辑活动', edit_activity_path(activity) %></td>
+          <td><%= link_to '删除活动', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="bottom">
+    <% if current_user.admin? %>
+    <%= link_to '新建活动', new_activity_path %> |
+    <%= link_to '查看请假原因', reasons_path%>
+    <% end %>
+</div>
