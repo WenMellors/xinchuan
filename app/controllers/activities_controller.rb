@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+    @appointment = Appointment.new
   end
 
   # GET /activities/1

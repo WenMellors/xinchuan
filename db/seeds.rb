@@ -8,6 +8,7 @@
 users = User.create(
  [
    {email:"123456@123.cc",password:"123456",role:"menber"},
-   {email:"admin@xxcmb.cc",password:"admin1",role:"admin"}
+   {email:"admin@xxcmb.cc",password:"admin1",role:"admin"},
+   {email:"client@buaa.cc",password:"buaaxiaohui",role:"client"}
  ]
 )

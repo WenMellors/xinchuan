@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
   def menber?
     self.role == "menber"
   end
+  def client?
+    self.role == "client"
+  end
 end

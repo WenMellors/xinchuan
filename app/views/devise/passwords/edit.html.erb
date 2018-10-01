@@ -1,5 +1,28 @@
-<h2>修改密码</h2>
-
+<!-- # 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">主页</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <% if current_user.admin? %>
+      <li class="nav-item">
+        <a class="nav-link" href="/activities/new">新建活动</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/reasons">查看请假原因</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/appointments">查看所有预约</a>
+      </li>
+      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/edit">修改密码</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
